@@ -6,6 +6,7 @@ import TextInput from '../components/TextInput/index';
 import {CheckBox, Text} from 'react-native-elements';
 import Button from '../components/Button/index';
 import Image from '../components/Image/index';
+import {Avatar} from 'react-native-elements';
 import Item from './items';
 export default function index() {
   const [checked, setChecked] = useState(false);
@@ -13,7 +14,7 @@ export default function index() {
 
   const list = [];
   const radomItem = () => {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 5; i++) {
       const item = {
         id: i,
         title: 'Header',
@@ -47,7 +48,23 @@ export default function index() {
         </View>
 
         <View style={styles.avatar}>
-          <Image http="https://source.unsplash.com/random?sig=1"></Image>
+          <Avatar
+            size={150}
+            rounded
+            title="P"
+            source={{uri: 'https://randomuser.me/api/portraits/women/57.jpg'}}
+            containerStyle={{
+              backgroundColor: 'white',
+              padding: 3,
+              marginTop: 10,
+              borderWidth: 1,
+              shadowColor: 'rgba(101, 101, 101, 0.15)',
+              shadowOffset: {width: 0, height: 0},
+              shadowOpacity: 1,
+              shadowRadius: 2,
+              borderColor: 'rgba(101, 101, 101, 0.15)',
+            }}
+          />
         </View>
         <View style={styles.body}>
           <Text
@@ -106,7 +123,7 @@ export default function index() {
                     fontWeight: 'bold',
                     marginLeft: 20,
                   }}>
-                  A mantra goes here
+                  Header
                 </Text>
               </View>
             )}

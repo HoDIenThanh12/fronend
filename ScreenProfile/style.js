@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
   avatar: {
     height: height(20),
     backgroundColor: 'green',
-    width: width(100),
+    width: width(100), 
+    alignItems: 'center',
   },
   body: {
     marginTop: height(5),
