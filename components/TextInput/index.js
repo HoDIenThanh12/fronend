@@ -1,15 +1,11 @@
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Input, Icon} from 'react-native-elements';
+import {Text} from 'react-native-elements';
+import {height, width} from '../stylesAll';
+import {Colors} from '../../constances';
 export default function TextInputs(prop) {
   const {
-    playHolder,
+    placeholder,
     onChangeText,
     style,
     textRight,
@@ -19,20 +15,16 @@ export default function TextInputs(prop) {
     styleTextRight,
     password = false,
   } = prop;
+  console.log(placeholder);
   return (
     <View style={[styles.container, style]}>
-      <Input
-        onChangeText={onChangeText} autoCompleteType={undefined}      >
-      </Input>
-      <Input
-       autoCompleteType={undefined}  
-        errorStyle={{color: 'red'}}
-        errorMessage="ENTER A VALID ERROR HERE"
+      <TextInput
         onChangeText={onChangeText}
-        placeholder={playHolder}
+        placeholder={placeholder}
         secureTextEntry={password}
-        inputStyle={[styles.textInput, styleText]}></Input>
-      {textRight && (
+        style={[styles.textInput]}></TextInput>
+
+      {textRight ? (
         <TouchableOpacity
           style={[styles.styleRightAction, styleTextRight]}
           onPress={rightAction}>
@@ -40,7 +32,7 @@ export default function TextInputs(prop) {
             {textRight}
           </Text>
         </TouchableOpacity>
-      )}
+      ) : null}
     </View>
   );
 }
@@ -51,27 +43,30 @@ const styles = StyleSheet.create({
   //style container
   container: {
     flexDirection: 'row',
+    width: width(90),
+    borderRadius: 10,
+    backgroundColor: Colors.Gray1,
+    borderColor: Colors.Gray2,
+    borderWidth: 1,
     alignItems: 'center',
-    paddingHorizontal: 10,
+    alignSelf: 'center',
     paddingVertical: 10,
-    borderRadius: 5,
-    backgroundColor: '#fff',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
   //style textInput
   textInput: {
-    flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     color: '#000',
+    borderBottomWidth: 0,
+    padding: 0,
+    maxWidth: width(80),
+    flex: 1,
   },
   //style textRight
-  styleRightAction: {
-    marginLeft: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    alignSelf: 'center',
-  },
+  styleRightAction: {},
   styleTextRight: {
-    color: '#000',
-    fontSize: 16,
+    color: 'green',
+    fontSize: 14,
   },
 });

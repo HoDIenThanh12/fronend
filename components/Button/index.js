@@ -1,29 +1,59 @@
-import { View, Text , TouchableOpacity, StyleSheet} from 'react-native'
-import React from 'react'
+import React from 'react';
+import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {height, width} from '../stylesAll';
 
-export default function index(props) {
-    const {text, style, styleText, onPress} = props
+const Button = props => {
+  const {
+    title,
+    isDisable = false,
+    styleText,
+    styleBtn,
+    icon,
+    styleIcon,
+    style,
+    onPress,
+  } = props;
+  console.log(onPress);
   return (
-    <TouchableOpacity style={[styles.container,style]} onPress={onPress}>
-        <Text style={[styles.text,styleText ]}>{text}</Text>
+    <TouchableOpacity
+      disabled={isDisable}
+      style={[styles.container, style]}
+      onPress={onPress}>
+      <View style={[styles.containerText, styleBtn]}>
+        <Text style={[styles.textButton, styleText]}>{title}</Text>
+      </View>
     </TouchableOpacity>
-  )
-}
-//style container
+  );
+};
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        paddingVertical: 10,
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        flex: 1,
-    },
-    //style text
-    text: {
-        flex: 1,
-        fontSize: 16,
-        color: '#000',
-    },
-}
+  container: {
+    display: 'flex',
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#5DB075',
+    width: width(90),
+    paddingVertical: 8,
+  },
+  containerText: {
+    display: 'flex',
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    borderColor: 'orange',
+    height: height(6),
+    flexDirection: 'row',
+  },
+  styleImage: {
+    height: height(5),
+    width: height(5),
+  },
+  textButton: {
+    alignSelf: 'center',
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+export default Button;
