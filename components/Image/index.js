@@ -2,12 +2,15 @@ import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {Image} from 'react-native-elements';
 export default function index(props) {
-  const {http = null, url = null, style} = props;
+  const {http = null, url = null, style, styleIcon} = props;
   return (
     <View style={styles.container}>
       <View style={{alignItems: 'center'}}>
         {http ? (
-          <Image source={{uri: http}} containerStyle={[styles.item, style]} />
+          <Image
+            source={{uri: http}}
+            containerStyle={[styles.item, styleIcon]}
+          />
         ) : (
           <Image source={{uri: url}} containerStyle={styles.item} />
         )}

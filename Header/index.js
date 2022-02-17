@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import {Text, Icon} from 'react-native-elements';
 import styles from './style';
-import Image from '../components/Image/index';
+import {Image} from 'react-native-elements';
 export default function Header(props) {
   const {
     textLeft,
@@ -16,9 +16,8 @@ export default function Header(props) {
   } = props;
   return (
     <View style={[styles.container, style]}>
-      {
-      iconLeft ? (
-        <Text style={[styles.textLeft, styleTextLeft]}>{textLeft}</Text>
+      {iconLeft ? (
+        <Image source={{uri: iconLeft}} containerStyle={styles.iconStyle} />
       ) : (
         <Text style={[styles.textLeft, styleTextLeft]}>{textLeft}</Text>
       )}

@@ -7,10 +7,14 @@ import {CheckBox, Text} from 'react-native-elements';
 import Button from '../components/Button/index';
 export default function index() {
   const [checked, setChecked] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
   return (
     <View style={styles.container}>
       <View>
-        <Header textLeft="textLeft" textMid="Sing up" textRight="Login"></Header>
+        <Header
+          iconLeft="https://cdn-icons.flaticon.com/png/512/2961/premium/2961937.png?token=exp=1645087678~hmac=4505b5bcd37b34f06f94c5d93d33ae48"
+          textMid="Sing up"
+          textRight="Login"></Header>
       </View>
 
       <View style={styles.body}>
@@ -20,7 +24,9 @@ export default function index() {
           style={styles.styleTextInput}></TextInput>
         <TextInput
           placeholder="Password"
+          password={!isShowPass}
           textRight="Show"
+          rightAction={() => setIsShowPass(!isShowPass)}
           style={styles.styleTextInput}></TextInput>
       </View>
       <View style={styles.check}>

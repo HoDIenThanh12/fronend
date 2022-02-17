@@ -26,5 +26,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
   },
+  iconStyle: {
+    width: width(5),
+    height: width(5),
+  },
+  containerIcon: {
+    width: width(5),
+    height: width(5),
+  },
 });
 export default styles;
